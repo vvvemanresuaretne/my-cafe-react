@@ -21,4 +21,8 @@
   color: #4b4b4b;
   max-width: 600px;
   line-height: 1.6;
+  
+}
+.description {
+  border: 1px solid red;
 }
