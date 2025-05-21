@@ -5,4 +5,3 @@ export interface Votes {
   neutral: number;
   bad: number;
 }
-
