@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import css from '../App/App.module.css';
 import CafeInfo from '../CafeInfo/CafeInfo.tsx';
 import { type Votes, type VoteType } from '../../types/types.tsx';
-import VoteStats from '../VoteStats/VoteStats.tsx'; 
+import VoteStats from '../VoteStats/VoteStats.tsx';
+import Notification from '../Notification/Notification.tsx';
 
 interface VoteOptionsProps {
   onVote: (option: 'good' | 'neutral' | 'bad') => void;
@@ -14,10 +15,8 @@ const VoteOptions: React.FC<VoteOptionsProps> = ({ onVote, onReset, canReset }) 
   return (
     <div className={css.container}>
       <button className={css.button} onClick={() => onVote('good')}>Good</button>
-<button className={css.button} onClick={() => onVote('neutral')}>Neutral</button>
-<button className={css.button} onClick={() => onVote('bad')}>Bad</button>
-
-
+      <button className={css.button} onClick={() => onVote('neutral')}>Neutral</button>
+      <button className={css.button} onClick={() => onVote('bad')}>Bad</button>
       {canReset && (
         <button className={`${css.button} ${css.reset}`} onClick={onReset}>
           Reset
@@ -56,11 +55,15 @@ const App = () => {
     <div className={css.app}>
       <CafeInfo />
       <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={canReset} />
-      <VoteStats
-        votes={votes}
-        totalVotes={totalVotes}
-        positiveRate={positiveRate}
-      />
+      {totalVotes > 0 ? (
+        <VoteStats
+          votes={votes}
+          totalVotes={totalVotes}
+          positiveRate={positiveRate}
+        />
+      ) : (
+        <Notification />
+      )}
     </div>
   );
 };
