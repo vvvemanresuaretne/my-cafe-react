@@ -3,6 +3,7 @@ import css from '../App/App.module.css';
 import CafeInfo from '../CafeInfo/CafeInfo.tsx';
 import { type Votes, type VoteType } from '../types/types.tsx';
 import VoteStats from '../VoteStats/VoteStats.tsx'; 
+
 interface VoteOptionsProps {
   onVote: (option: 'good' | 'neutral' | 'bad') => void;
   onReset: () => void;
