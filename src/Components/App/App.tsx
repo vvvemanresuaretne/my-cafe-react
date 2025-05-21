@@ -13,9 +13,9 @@ interface VoteOptionsProps {
 const VoteOptions: React.FC<VoteOptionsProps> = ({ onVote, onReset, canReset }) => {
   return (
     <div className={css.container}>
-      <button className={css.button} onClick={() => onVote('good')}>Good</button>
-<button className={css.button} onClick={() => onVote('neutral')}>Neutral</button>
-<button className={css.button} onClick={() => onVote('bad')}>Bad</button>
+      <button className={css.button} onClick={() => onVote('Good')}>Good</button>
+<button className={css.button} onClick={() => onVote('Neutral')}>Neutral</button>
+<button className={css.button} onClick={() => onVote('Bad')}>Bad</button>
 
 
       {canReset && (
