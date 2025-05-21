@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import css from './App.module.css';
-import CafeInfo from '../src/CafeInfo/CafeInfo.tsx';
-import { Votes, VoteType } from './types/votes';
-import VoteStats from './VoteStats/VoteStats'; // Імпортуємо компонент статистики
+import css from '../App/App.module.css';
+import CafeInfo from '../CafeInfo/CafeInfo.tsx';
+import { Votes, VoteType } from '../../votes.ts';
+import VoteStats from '../VoteStats/VoteStats.tsx'; 
 
 interface VoteOptionsProps {
   onVote: (option: 'Good' | 'Neutral' | 'Bad') => void;
@@ -13,9 +13,10 @@ interface VoteOptionsProps {
 const VoteOptions: React.FC<VoteOptionsProps> = ({ onVote, onReset, canReset }) => {
   return (
     <div className={css.container}>
-      <button className={css.button} onClick={() => onVote('Good')}>Good</button>
-      <button className={css.button} onClick={() => onVote('Neutral')}>Neutral</button>
-      <button className={css.button} onClick={() => onVote('Bad')}>Bad</button>
+      <button className={css.button} onClick={() => onVote('good')}>Good</button>
+<button className={css.button} onClick={() => onVote('neutral')}>Neutral</button>
+<button className={css.button} onClick={() => onVote('bad')}>Bad</button>
+
 
       {canReset && (
         <button className={`${css.button} ${css.reset}`} onClick={onReset}>

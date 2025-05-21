@@ -2,10 +2,11 @@ import React from 'react';
 import css from '../VoteOptions/VoteOptions.module.css';
 
 interface VoteOptionsProps {
-  onVote: (option: 'Good' | 'Neutral' | 'Bad') => void;
+  onVote: (option: 'good' | 'neutral' | 'bad') => void; 
   onReset: () => void;
   canReset: boolean;
 }
+
 
 const VoteOptions: React.FC<VoteOptionsProps> = ({ onVote, onReset, canReset }) => {
   return (
