@@ -1,4 +1,3 @@
-import React from 'react';
 import css from '../App/App.module.css';
 
 const CafeInfo = () => {
